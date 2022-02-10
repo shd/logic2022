@@ -79,10 +79,13 @@ $\Gamma$ обозначает какое-то множество гипотез.
 \begin{enumerate}
 \item $\vdash \alpha \vee \neg \alpha$ \emph{(правило исключённого третьего)}
 \item $\vdash ((\alpha \rightarrow \beta) \rightarrow \alpha)\rightarrow \alpha$ \emph{(закон Пирса)}
-\item без использования 10 схемы аксиом: $((\alpha \rightarrow \beta) \rightarrow \alpha)\rightarrow \alpha \vdash \neg\neg \alpha\rightarrow \alpha$
-(то есть, схему аксиом 10 можно заменить на закон Пирса);
-\item без использования 10 схемы аксиом: $\alpha \vee \neg \alpha \vdash \neg\neg \alpha\rightarrow \alpha$
-(то есть, схему аксиом 10 можно заменить на правило исключённого третьего);
+\item Предположим, 10 схема аксиом заменена на две другие схемы аксиом: 
+$((\alpha\rightarrow\beta)\rightarrow\alpha)\rightarrow\alpha$ и $\alpha\rightarrow\neg\alpha\rightarrow\beta$.
+В этих условиях покажите $\neg\neg \alpha\rightarrow \alpha$.
+\item Предположим, 10 схема аксиом заменена на две другие схемы аксиом: 
+$\alpha\vee\neg\alpha$ и $\alpha\rightarrow\neg\alpha\rightarrow\beta$.
+В этих условиях покажите 
+$\neg\neg \alpha\rightarrow \alpha$.
 \end{enumerate}
 
 \item Докажите следующие <<странные>> формулы:
