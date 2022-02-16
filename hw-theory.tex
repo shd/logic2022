@@ -120,4 +120,96 @@ $\beta\ne\gamma$ .
 \item Покажите, что если $\alpha \vdash \beta$ и $\neg\alpha\vdash\beta$, то $\vdash\beta$.
 \end{enumerate}
 
+\section*{Задание №2. Теоремы о корректности и полноте классического исчисления высказываний. Интуиционистская логика.}
+
+\begin{enumerate}
+
+\item Теоремы о корректности и полноте классического исчисления высказываний.
+\begin{enumerate}
+\item Заполните пробел в доказательстве корректности исчисления высказываний: 
+покажите, что если $\vdash \alpha$ и в доказательстве высказывание
+$\delta_n$ получено с помощью Modus Ponens из $\delta_j$ и $\delta_k \equiv \delta_j\rightarrow\delta_n$,
+то $\models \delta_n$.
+
+\item Покажите, что если $\Gamma \vdash \alpha$, то $\Gamma \models \alpha$.
+\item Покажите, что если $\Gamma \models \alpha$, то $\Gamma \vdash \alpha$.
+\end{enumerate}
+
+\item Предложите топологические пространства и оценку для пропозициональных переменных,
+опровергающие следующие выскзывания:
+
+\begin{enumerate}
+\item $A \vee \neg A$ (на лекции приводился пример в $\mathbb{R}$; в данном же задании предложите оценку в 
+каком-то другом пространстве, например в $\mathbb{R}^2$)
+\item $(((A \rightarrow B) \rightarrow A) \rightarrow A)$
+\item $\neg\neg A \rightarrow A$
+\item $(A \rightarrow (B \vee \neg B)) \vee (\neg A \rightarrow (B \vee \neg B))$
+\item $(A \rightarrow B) \vee (B \rightarrow C) \vee (C \rightarrow A)$
+\item $\bigvee_{i=1,n} \left((A_i \rightarrow A_{(i\mod n) + 1}) \with (A_{(i\mod n)+1} \rightarrow A_i)\right)$
+\end{enumerate}
+
+\item Доказуемы ли следующие высказывания в интуиционистской логике?
+\begin{enumerate}
+\item $\neg\neg\neg\neg A \rightarrow \neg\neg A$
+\item $\neg A \vee \neg\neg A \vee \neg\neg\neg A$
+\item $A \vee B \rightarrow \neg (\neg A \with \neg B)$
+\item $\neg (\neg A \vee \neg B) \rightarrow A \with B$
+\item $(A \rightarrow B) \rightarrow (\neg A \vee B)$
+\item $(\neg A \vee B) \rightarrow (A \rightarrow B)$
+\end{enumerate}
+
+\item Известно, что в классической логике любая связка может быть \emph{выражена} как композиция 
+конъюнкций и отрицаний: существует схема высказываний, использующая только конъюнкции и отрицания, 
+задающая высказывание, логически эквивалентное исходной связке. 
+Например, для импликации можно взять $\neg(\alpha\with\neg\beta)$, ведь 
+$\alpha\rightarrow\beta\vdash\neg(\alpha\with\neg\beta)$ и $\neg(\alpha\with\neg\beta)\vdash\alpha\rightarrow\beta$. 
+Возможно ли в интуиционистской логике выразить через остальные связки:
+\begin{enumerate}
+\item конъюнкцию?
+\item дизъюнкцию?
+\item импликацию?
+\item отрицание?
+\end{enumerate}
+Если да, предложите формулу и два вывода. Если нет --- докажите это (например, предложив соответствующую
+модель).
+
+\item \emph{Теорема Гливенко.} Обозначим доказуемость высказывания $\alpha$ в классической логике 
+как $\vdash_\text{к}\alpha$, а в интуиционистской --- как $\vdash_\text{и}\alpha$. 
+Оказывается возможным показать, что какое бы ни было $\alpha$, если $\vdash_\text{к}\alpha$, 
+то $\vdash_\text{и}\neg\neg\alpha$. А именно, покажите, что:
+
+\begin{enumerate}
+\item Если $\alpha$ --- аксиома, полученная из схем 1--9 исчисления высказываний, то $\vdash_\text{и}\neg\neg\alpha$.
+\item $\vdash_\text{и}\neg\neg(\neg\neg\alpha\rightarrow\alpha)$
+\item $\neg\neg\alpha,\neg\neg(\alpha\rightarrow\beta) \vdash_\text{и}\neg\neg\beta$
+\item Докажите утверждение теоремы ($\vdash_\text{к}\alpha$ влечёт $\vdash_\text{и}\neg\neg\alpha$),
+опираясь на предыдущие пункты, и покажите, что классическое исчисление высказываний противоречиво
+тогда и только тогда, когда противоречиво интуиционистское.
+\end{enumerate}
+
+\item Возможно ли предложить такой набор множеств $S$ из $\mathbb{R}$ (формально: $S \subseteq \mathcal{P}(\mathbb{R})$), 
+чтобы при выборе его в качестве истинностного множества $\mathbb{V}$, при сохранении правил вычисления
+значений связок для интуиционистской логики, получилась бы полная и корректная модель для классического 
+исчисления высказываний?
+
+\item Пусть $S$ --- некоторое множество. Рассмотрим $\mathbb{V} = \mathcal{P}(S)$, 
+определим связки так:
+$$\begin{array}{ccc}
+  \llbracket\alpha \with \beta\rrbracket & = & \llbracket\alpha\rrbracket \cap \llbracket\beta\rrbracket \\
+  \llbracket\alpha \vee \beta\rrbracket & = & \llbracket\alpha\rrbracket \cup \llbracket\beta\rrbracket \\
+  \llbracket\alpha \rightarrow \beta\rrbracket & = & S\setminus\llbracket\alpha\rrbracket \cup \llbracket\beta\rrbracket \\
+  \llbracket\neg\alpha\rrbracket & = & S\setminus\llbracket\alpha\rrbracket  \\
+\end{array}$$
+
+Также, будем считать, что $\models \alpha$, если $\llbracket\alpha\rrbracket = S$.
+
+Покажите, что получившееся:
+\begin{enumerate}
+\item корректная модель классического исчисления высказываний.
+Для уменьшения рутинной работы достаточно показать выполнение схемы аксиом 9 и правила Modus Ponens.
+
+\item полная модель классического исчисления высказываний.
+\end{enumerate}
+
+\end{enumerate}
 \end{document}
