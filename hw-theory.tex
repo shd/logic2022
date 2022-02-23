@@ -212,4 +212,174 @@ $$\begin{array}{ccc}
 \end{enumerate}
 
 \end{enumerate}
+
+\section*{Задание №3. Интуиционистская логика и натуральный вывод.}
+
+\begin{enumerate}
+\item Напомним определения: \emph{замкнутое} множество --- такое, дополнение которого открыто.
+\emph{Внутренностью} множества $A^\circ$ назовём наибольшее открытое множество, содержащееся в $A$.
+\emph{Замыканием} множества $\overline{A}$ назовём наименьшее замкнутое множество, содержащее $A$.
+Назовём \emph{окрестностью} точки $x$ такое открытое множество $V$, что $x \in V$.
+Будем говорить, что точка $x \in A$ \emph{внутреняя}, если существует окрестность $V$, что $V \subseteq A$.
+Точка $x\in A$ --- \emph{граничная}, если любая её окрестность $V$ пересекается как с $A$, так и с его дополнением.
+\begin{enumerate}                                                                                               
+\item Покажите, что $A$ открыто тогда и только тогда, когда все точки $A$ --- внутренние.
+Также покажите, что $A^\circ = \{ x|x \in A \with x\text{ --- внутренняя точка}\}$.
+\item Покажите, что $A$ замкнуто тогда и только когда, когда содержит все свои граничные точки.
+Также покажите, что $\overline{A} = \{ x|x \in A \with x\text{ --- внутренняя или граничная точка}\}$.
+Верно ли, что $\overline{A} = X \ ((X\setminus A)^\circ)$?
+\item Покажите, что внутренность и замыкание корректно определены (что существуют соответствующие наибольшее и наименьшее множества).
+\item Введём топологию на деревьях способом, рассмотренным на лекции. Рассмотрим некоторое множество
+вершин $V$. Опишите множества $V^\circ$ и $\overline{V}$. Какие вершины будут являться граничными для $V$?
+\item Пусть $A \subseteq B$. Как связаны $A^\circ$ и $B^\circ$, а также $\overline{A}$ и $\overline{B}$?
+\item Верно ли $(A \cap B)^\circ = A^\circ \cap B^\circ$ и $(A \cup B)^\circ = A^\circ \cup B^\circ$?
+\item Покажите, что $\overline{\left(\overline{A^\circ}\right)^\circ} = \overline{A^\circ}$.
+\item \emph{Задача Куратовского.} Будем применять операции взятия внутренности и замыкания к некоторому множеству
+всевозможными способами. Сколько различных множеств может всего получиться?
+\end{enumerate}
+
+\item Примеры топологий.
+Для каждого из примеров ниже покажите, в нём задано топологическое пространство и ответьте следующие вопросы:
+каковы окрестности точек в данной топологии;
+каковы будут внутренность и замыкание для данного множества (определите это прямо);
+каковы замкнутые множества в данной топологии;
+является ли данная топология моделью для классической логики;
+связно ли данное пространство.
+
+\begin{enumerate}
+\item Топология Зарисского на $\mathbb{R}$: 
+$\Omega = \{\varnothing\} \cup \{ X \subseteq \mathbb{R}\ |\ \mathbb{R} \setminus X\ \text{конечно} \}$,
+то есть пустое множество и все множества с конечным дополнением.
+\item Топология стрелки на $\mathbb{R}$:
+$\Omega = \{\varnothing, \mathbb{R}\} \cup \{ (x,+\infty) | x \in \mathbb{R} \}$, то есть пустое, 
+всё пространство и все открытые лучи.
+\item Множество всех бесконечных подмножеств $\mathbb{R}$:
+$\Omega = \{\varnothing\} \cup \{ X \subseteq \mathbb{R}\ |\ X\ \text{бесконечно} \}$
+\item Множество всевозможных объединений арифметических прогрессий:
+$A(a) = \{ a\cdot x\ |\ x \in \mathbb{Z}\}$;
+$X \in \Omega$, если $X=\varnothing$ или $X = \bigcup_i A(a_i)$.
+Будет ли это топологическим пространством, если мы будем рассматривать арифметические прогрессии
+в полной форме, в виде $a \cdot x + b$?
+\end{enumerate}
+
+
+
+\item Связность.
+\begin{enumerate}
+\item Связны ли $\mathbb{Q}$ и $\mathbb{R}\setminus\mathbb{Q}$ как топологические подпространства $\mathbb{R}$?
+\item Связно ли множество $\{0,1\}$ в топологии стрелки и в топологии Зарисского?
+\item Покажите, что дерево с отмеченным корнем (с рассмотренной на лекции топологией) связно.
+\item Покажите, что если лес связен в топологическом смысле, то он состоит из одного дерева.
+\end{enumerate}
+
+\item Натуральный вывод был описан на лекции, но примеров доказательств не приводилось. Приведём такой пример: 
+$$\infer{\alpha\with\beta\vdash\beta\with\alpha}{
+    \infer{\alpha\with\beta\vdash\alpha}{\infer{\alpha\with\beta\vdash\alpha\with\beta}{}}\quad\quad
+    \infer{\alpha\with\beta\vdash\beta}{\infer{\alpha\with\beta\vdash\alpha\with\beta}{}}
+  }$$
+
+Постройте следующие доказательства в натуральном выводе:
+
+\begin{enumerate}
+\item $\alpha\vdash\neg\neg\alpha$
+\item $\neg \alpha\vee \beta\vdash \alpha \rightarrow \beta$
+\item $\alpha \rightarrow \beta \vdash \neg \beta \rightarrow \neg \alpha$
+\item $\alpha \vee \beta \vdash \neg (\neg\alpha\with\neg\beta)$
+\end{enumerate}
+
+\item Чтобы избежать путаницы, обозначим выводимость в ИИВ <<гильбертовского стиля>> как $\vdash_\text{г}$, 
+а знак $\vdash$ в ИИВ <<системы натурального (естественного) вывода>> как $\vdash_\text{н}$.
+
+Напомним, что языки гильбертовского и натурального выводов отличаются (обозначим эти
+языки как $\mathcal{L}_\text{г}$ и $\mathcal{L}_\text{н}$ соответсвенно. 
+
+Определим функции, отображающие языки друг в друга:
+$|\cdot|_\text{н}: \mathcal{L}_\text{г}\rightarrow\mathcal{L}_\text{н}$ и
+$|\cdot|_\text{г}: \mathcal{L}_\text{н}\rightarrow\mathcal{L}_\text{г}$.
+Они сохраняют почти все значения,
+кроме лжи ($\bot$) и отрицания ($\neg$): 
+
+\begin{center}
+\begin{tabular}{ll}
+\begin{minipage}{0.4\hsize}
+$$|\sigma|_\text{н} = \left\{\begin{array}{ll}
+  |\alpha|_\text{н}\rightarrow\bot, &\sigma\equiv\neg\alpha\\
+  |\alpha|_\text{н} \star |\beta|_\text{н}, &\sigma\equiv\alpha\star\beta\\
+  X, & \sigma \equiv X
+\end{array}\right.$$ 
+\end{minipage}
+&
+\begin{minipage}{0.4\hsize}
+$$|\sigma|_\text{г} = \left\{\begin{array}{ll}
+  A\with\neg A, &\sigma\equiv\bot\\
+  |\alpha|_\text{г} \star |\beta|_\text{г}, &\sigma\equiv\alpha\star\beta\\
+  X, & \sigma \equiv X
+\end{array}\right.$$
+\end{minipage}
+\end{tabular}
+\end{center}
+
+Естественным образом расширим эти операции на контексты: $|\gamma_1,\gamma_2,\dots,\gamma_n| = |\gamma_1|,|\gamma_2|,\dots,|\gamma_n|$.
+
+\begin{enumerate}
+\item Пусть $\Gamma\vdash_\text{г}\alpha$. Покажите, что $|\Gamma|_\text{н}\vdash_\text{н}|\alpha|_\text{н}$: 
+предложите общую схему перестроения доказательства, постройте доказательства для трёх случаев базы 
+(схема аксиом 2, схема аксиом 5, схема аксиом 9) и одного случая перехода индукции.
+\item Пусть $\Gamma\vdash_\text{н}\alpha$. Покажите, что $|\Gamma|_\text{г}\vdash_\text{г}|\alpha|_\text{г}$
+(постройте схему доказательства, и покажите один случай базы и три случая перехода индукции). 
+\item Покажите аналог теоремы о дедукции: $\Gamma\vdash_\text{н}\alpha\rightarrow\beta$
+тогда и только тогда, когда $\Gamma,\alpha\vdash_\text{н}\beta$.
+\end{enumerate}
+
+\item Покажите, что открытые множества топологического пространства с отношением порядка $(\subseteq)$ 
+образуют импликативную решётку с нулём.
+
+\item Напомним, что линейным порядком называется такой порядок $\langle X, \preceq \rangle$, что 
+для любых $x,y \in X$ выполнено $x \preceq y$ или $y \preceq x$. Задаёт ли линейный порядок решётку?
+Дистрибутивна, импликативна ли она, есть ли в ней 0 и 1?
+
+\item Рассмотрим $\mathbb{N}_0$ (натуральные числа с нулём) с традиционным отношением порядка как решётку.
+Каков будет смысл операций $(+)$, $(\cdot)$ и $(\rightarrow)$ в данной решётке, определены ли 0 или 1? 
+Верно ли, что $2 \cdot 2 = 4$ или $2 + 2 = 4$? Приведите каких-нибудь три свойста традиционных определений 
+$(+)$ и $(\cdot)$, которые будут всё равно выполнены при таком переопределении, и три свойства, которые 
+перестанут выполняться.
+
+\item Постройте следующие примеры:
+\begin{enumerate}
+\item непустого частично-упорядоченного множества, имеющего операцию $(+)$ для всех элементов, но не имеющего $(\cdot)$ для некоторых;
+имеющего опреацию $(\cdot)$ для всех элементов, но не имеющего $(+)$ для некоторых.
+\item решётки, не являющейся дистрибутивной решёткой; импликативной решётки без 0.
+\item дистрибутивной, но не импликативной решётки (эта решётка не может быть конечной).
+\end{enumerate}
+
+\item Покажите, что в дистрибутивной решётке (всегда $a + (b \cdot c) = (a + b) \cdot (a + c)$) также выполнено
+и $(a + b)\cdot c = (a \cdot c) + (b \cdot c)$.
+
+\item Покажите следующие тождества и свойства для импликативных решёток:
+\begin{enumerate}
+\item ассоциативность: $a + (b + c) = (a + b) + c$ и $a \cdot (b \cdot c) = (a \cdot b) \cdot c$;
+\item монотонность: пусть $a \preceq b$ и $c \preceq d$, тогда $a + c \preceq b + d$ и $a \cdot c \preceq b \cdot d$;
+\item \emph{Законы поглощения:} $a \cdot (a + b) = a$; $a + (a \cdot b) = a$;
+\item $a \preceq b$ выполнено тогда и только тогда, когда $a \rightarrow b = 1$;
+\item из $a \preceq b$ следует $b\rightarrow c \preceq a\rightarrow c$ и $c\rightarrow a \preceq c \rightarrow b$;
+\item из $a \preceq b \rightarrow c$ следует $a \cdot b \preceq c$;
+\item $b \preceq a \rightarrow b$ и $a \rightarrow (b \rightarrow a) = 1$;
+\item $a \rightarrow b \preceq ((a \rightarrow (b \rightarrow c)) \rightarrow (a \rightarrow c))$;
+\item $a \preceq b \rightarrow a \cdot b$ и $a \rightarrow (b \rightarrow (a \cdot b)) = 1$
+\item $a \rightarrow c \preceq (b \rightarrow c) \rightarrow (a + b \rightarrow c)$
+\item импликативная решётка дистрибутивна: $a + (b \cdot c) = (a + b) \cdot (a + c)$
+\end{enumerate}
+
+\item Докажите, основываясь на формулах предыдущих заданий, что ИИВ (вариант натурального вывода) 
+корректно, если в качестве модели выбрать импликативную решётку с 0, а функции оценок определить так:
+$$\begin{array}{ccc}
+  \llbracket\alpha \with \beta\rrbracket & = & \llbracket\alpha\rrbracket \cdot \llbracket\beta\rrbracket \\
+  \llbracket\alpha \vee \beta\rrbracket & = & \llbracket\alpha\rrbracket + \llbracket\beta\rrbracket \\
+  \llbracket\alpha \rightarrow \beta\rrbracket & = & \llbracket\alpha\rrbracket \rightarrow \llbracket\beta\rrbracket \\
+  \llbracket\neg\alpha\rrbracket & = & \llbracket\alpha\rrbracket \rightarrow 0 \\
+  \llbracket\bot\rrbracket & = & 0 \\
+\end{array}$$
+
+\end{enumerate}
+
 \end{document}
