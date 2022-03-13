@@ -46,3 +46,14 @@ https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
 + В.Е.Плиско, В.Х.Хаханян, Интуиционистская логика, Мех-Мат МГУ 2009 (http://lpcs.math.msu.su/~plisko/intlog.pdf)
 + Morten Heine B. Sørensen, Pawel Urzyczyn: Lections on the Curry-Howard Isomorphism
 https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
+
+## Лекция 4
+### Теоремы об интуиционистской логике
++ Алгебра Линденбаума
++ Дизъюнктивность ИИВ
++ Модели Крипке
++ Нетабличность ИИВ
+### Где почитать
++ В.Е.Плиско, В.Х.Хаханян, Интуиционистская логика, Мех-Мат МГУ 2009 (http://lpcs.math.msu.su/~plisko/intlog.pdf)
++ Morten Heine B. Sørensen, Pawel Urzyczyn: Lections on the Curry-Howard Isomorphism
+https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
