@@ -57,3 +57,15 @@ https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
 + В.Е.Плиско, В.Х.Хаханян, Интуиционистская логика, Мех-Мат МГУ 2009 (http://lpcs.math.msu.su/~plisko/intlog.pdf)
 + Morten Heine B. Sørensen, Pawel Urzyczyn: Lections on the Curry-Howard Isomorphism
 https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
+
+## Лекция 5
+### Исчисление предикатов
++ Язык исчисления предикатов
++ Оценки формул исчисления предикатов
++ Свобода вхождения, свобода для подстановки
++ Теорема о дедукции для исчисления предикатов
++ Следование
+### Где почитать
++ Н.К. Верещагин, А. Шень. Лекции по математической логике и теории алгоритмов. Языки и исчисления.
+https://www.mccme.ru/free-books/shen/shen-logic-part2-2.pdf
++ Конспекты 2011 и 2018 года по логике.
