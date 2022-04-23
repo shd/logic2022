@@ -316,11 +316,11 @@ $$\exists g_1.\dots.\exists g_k.\varphi(g_1,\dots,g_k,x_{n+1})\with\gamma_1(x_1,
 
 \begin{frame}{$\beta$-функция Гёделя}
 Задача: закодировать последовательность натуральных чисел произвольной длины.\pause
-\begin{dfn}$\beta$-функция Гёделя: $\beta(b,c,i) := b \% (1 + (i+1) \cdot c)$\\
+\begin{dfn}$\beta$-функция Гёделя: $\mathcal{\beta}(b,c,i) := b \% (1 + (i+1) \cdot c)$\\
 Здесь (\%) --- остаток от деления.
 \end{dfn}\pause
 \begin{thm}$\beta$-функция Гёделя представима в Ф.А. формулой
-$$\beta (b,c,i,d) := \exists q.(b = q \cdot (1 + c \cdot (i+1)) + d) \& (d < 1 + c \cdot (i+1))$$
+$$\hat{\beta}(b,c,i,d) := \exists q.(b = q \cdot (1 + c \cdot (i+1)) + d) \& (d < 1 + c \cdot (i+1))$$
 \end{thm}\pause\vspace{-0.3cm}
 Деление $b$ на $x$ с остатком: найдутся частное $(q)$ и остаток $(d)$, что
 $b = q\cdot x + d$ и $0 \le d < x$.
@@ -349,7 +349,7 @@ $$a_i = b \% (1 + c\cdot(i+1)) = \beta(b,c,i)$$
 \qed
 \end{frame}
 
-\begin{frame}{Примитив $R\langle f,g\rangle$ представим в Ф.А.}
+\begin{frame}{Примитив <<примитивная рекурсия>> представим в Ф.А.}
 
 Пусть $f: \mathbb{N}^n_0\to\mathbb{N}_0$ и $g:\mathbb{N}^{n+2}_0\to\mathbb{N}_0$ представлены формулами $\varphi$ и $\gamma$. 
 
@@ -367,16 +367,16 @@ $R\langle f,g\rangle (x_1,\dots,x_n,y) = g(x_1,\dots,x_n,y-1,a_{y-1})$ & $a_y$ &
 $\beta (b,c,i) = a_i$ для $0 \le i \le y$.\pause
 
 \begin{thm}Примитив $R\langle f,g\rangle$ представим в Ф.А. формулой $\rho(x_1,\dots,x_n,y,a)$:\vspace{-0.1cm}
-$$\begin{array}{l}\exists b. \exists c. (\exists a_0. \beta (b,c,0,a_0) \& \varphi (x_1,...x_n, a_0)) \\
-       \&\;\;\;\;\forall k.k < y \rightarrow \exists d . \exists e . \beta (b,c,k,d) \& \beta (b,c,k',e) \& \gamma (x_1,..x_n,k,d,e) \\
-       \&\;\;\;\;\beta (b,c,y,a) 
+$$\begin{array}{l}\exists b. \exists c. (\exists a_0. \hat{\beta} (b,c,0,a_0) \& \varphi (x_1,...x_n, a_0)) \\
+       \&\;\;\;\;\forall k.k < y \rightarrow \exists d . \exists e . \hat{\beta} (b,c,k,d) \& \hat{\beta} (b,c,k',e) \& \gamma (x_1,..x_n,k,d,e) \\
+       \&\;\;\;\;\hat{\beta} (b,c,y,a) 
 \end{array}$$
 \end{thm}
 \end{frame}
 
 \begin{frame}{Представимость рекурсивных функций в Ф.А.}
 \begin{thm}Пусть функция $f:\mathbb{N}^{n+1}_0 \to \mathbb{N}_0$ представима в Ф.А.
-формулой $\varphi(x_1,\dots,x_n,y)$. Тогда примитив $M\langle f\rangle$ представим в Ф.А. 
+формулой $\varphi(x_1,\dots,x_{n},y,r)$. Тогда примитив $M\langle f\rangle$ представим в Ф.А. 
 формулой $$\mu(x_1,\dots,x_n,y) := \neg\varphi(x_1,\dots,x_n,y,0) \with \forall u.u < y \to \varphi(x_1,\dots,x_n,u,0)$$
 \end{thm}\pause
 
