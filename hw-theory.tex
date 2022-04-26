@@ -648,12 +648,15 @@ $$C_R(x_1, \dots, x_n) = \left\{\begin{array}{ll}1,&\langle x_1,\dots,x_n\rangle
 \item Пусть заданы списки (в любом языке программирования) $L(\alpha)$, хранящие значения типа $\alpha$.
 Реализуйте следующие функции, являющиеся аналогами конструктивных аксиом теории множеств:
 \begin{enumerate}
-\item $\texttt{pair}: (\alpha, \alpha) \rightarrow L(\alpha)$, формирует список из двух своих аргументов.
+\item $\texttt{empty}: L(\alpha)$, строит пустой список, и $\texttt{pair}: (\alpha, \alpha) \rightarrow L(\alpha)$, формирует список из двух своих аргументов.
 \item $\texttt{flatten}: L(L(\alpha)) \rightarrow L(\alpha)$, соединяет все списки внутри списка в один.
 \item $\texttt{powerset}: L(\alpha) \rightarrow L(L(\alpha))$, делает из списка список всех возможных подсписков.
 \item $\texttt{filter}: (\alpha \rightarrow \texttt{bool}) \rightarrow L(\alpha) \rightarrow L(\alpha)$,
 выделяет из списка все элементы, соответствующие условию.
 \end{enumerate}
+\item На самом деле ординалы --- это не списки, а деревья. Перепишите задачу 1 соответствующим образом,
+и напишите функцию $\texttt{ordinal}: \texttt{int} \rightarrow \texttt{set}$, строящую ординал,
+соответствующий заданному числу. Множество можно строить только через аналоги функций из 1 задания.
 \item Определим упорядоченную пару $\langle a,b\rangle := \{\{a\},\{a,b\}\}$. Покажите, что:
 \begin{enumerate}
 \item Упорядоченная пара --- множество.
