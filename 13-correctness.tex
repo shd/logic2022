@@ -1,0 +1,247 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{cancel}
+\usepackage{amssymb}
+\usepackage{stmaryrd}
+\usepackage{cmll}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{tikz}
+\usepackage{multicol}
+\usetikzlibrary{patterns}
+\usepackage{chronosys}
+\usepackage{proof}
+\usepackage{multirow}
+\setbeamertemplate{navigation symbols}{}
+%\usetheme{Warsaw}
+
+\newtheorem{thm}{Теорема}[section]
+\newtheorem{dfn}{Определение}[section]
+\newtheorem{lmm}{Лемма}[section]
+\newtheorem{exm}{Пример}[section]
+\newtheorem{snote}{Пояснение}[section]
+
+\newcommand{\divisible}%                                                     
+{\mathrel{\lower.2ex%
+\vbox{\baselineskip=0.7ex\lineskiplimit=0pt%
+\kern6pt \hbox{.}\hbox{.}\hbox{.}}%
+}}
+
+\begin{document}
+
+\newcommand\doubleplus{+\kern-1.3ex+\kern0.8ex}
+\newcommand\mdoubleplus{\ensuremath{\mathbin{+\mkern-10mu+}}}
+
+\begin{frame}{}
+\LARGE\begin{center}Теорема о корректности формальной арифметики\end{center}
+\end{frame}
+
+\begin{frame}{Два вида индукции}
+\begin{dfn}\emph{(Принцип математической индукции)}
+Какое бы ни было $\varphi(x)$, если $\varphi(0)$ и при всех $x$ выполнено $\varphi(x)\rightarrow \varphi(x')$, то
+при всех $x$ выполнено и само $\varphi(x)$.
+\end{dfn}
+
+\begin{dfn}\emph{(Принцип полной математической индукции)}
+Какое бы ни было $\psi(x)$, если $\psi(0)$ и при всех $x$ выполнено $(\forall t.x < t \rightarrow \psi(x))\rightarrow \psi(x')$, то
+при всех $x$ выполнено и само $\psi(x)$.
+\end{dfn}
+
+\begin{thm}Принципы математической индукции эквивалентны\end{thm}
+\begin{proof}
+$(\Rightarrow)$ взяв $\varphi := \psi$, имеем выполненость $\varphi(x)\rightarrow\varphi(x')$, значит, $\forall x.\psi(x)$. \pause\\
+$(\Leftarrow)$ возьмём $\psi(x) := \forall t.t\le x\rightarrow\varphi(t)$
+\end{proof}
+\end{frame}
+
+\begin{frame}{Трансфинитная индукция}
+\begin{thm}Принцип трансфинитной индукции. Если для $\varphi(x)$ --- некоторого утверждения
+теории множеств --- выполнено:
+\begin{enumerate}
+\item $\varphi(\varnothing)$
+\item Если $\forall u.u \in \upsilon \rightarrow \varphi(u)$, то $\varphi(\upsilon)$
+\end{enumerate}
+то $\forall u.\varphi(u)$
+\end{thm}
+\end{frame}
+
+\begin{frame}{Индукция для натуральных чисел}
+\begin{lmm}Свойство индукции выполнено для натуральных чисел:
+если $\varphi(0)$ и $\forall x\in\mathbb{N}_0.f(x) \rightarrow f(x')$, то $\forall x\in\mathbb{N}_0.f(x)$.
+\end{lmm}
+
+\begin{proof}
+Пусть $\varphi(\varnothing)$ и $\forall u.(u \in \omega) \rightarrow \varphi(u) \rightarrow \varphi(u')$.
+Рассмотрим $\tau(n) = \forall u.u \in n \rightarrow \varphi(u)$. Очевидно,
+что если $m \in n$, то $\tau(n) \rightarrow \tau(m)$. Значит, выполнены условия принципа
+трансфинитной индукции для $\omega$, отсюда $\tau(\omega)$, отсюда $\forall u.(u \in \omega) \rightarrow \varphi(u)$.
+\end{proof}
+\end{frame}
+
+\begin{frame}{Исчисление $S_\infty$}
+\begin{enumerate}                             
+\item Язык: связки $\neg$, $\vee$, $\forall$; нелогические символы: $(+)$,$(\cdot)$,$(')$,$0$,$(=)$.
+\item Аксиомы: все истинные формулы вида $\theta_1=\theta_2$; все истинные отрицания формул вида $\neg\theta_1=\theta_2$
+($\theta_i$ --- термы без переменных).
+\item Структурные (слабые) правила:
+$$\infer{\zeta\vee\beta\vee\alpha\vee\delta}{\zeta\vee\alpha\vee\beta\vee\delta} \quad\quad
+\infer{\alpha\vee\delta}{\alpha\vee\alpha\vee\delta}$$
+
+сильные правила
+$$\infer{\alpha\vee\delta}{\delta}\quad
+\infer{\neg(\alpha\vee\beta)\vee\delta}{\neg\alpha\vee\delta\quad\neg\beta\vee\delta}\quad
+\infer{\neg\neg\alpha\vee\delta}{\alpha\vee\delta}\quad
+\infer{(\neg\forall x.\alpha)\vee\delta}{\neg\alpha[x := \theta]\vee\delta}\quad$$
+
+и ещё два правила ...
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Ещё правила $S_\infty$}
+бесконечная индукция
+$$\infer{(\forall x.\alpha)\vee\delta}{\alpha[x:=\overline{0}]\vee\delta
+                                  \quad\alpha[x:=\overline{1}]\vee\delta
+                                  \quad\alpha[x:=\overline{2}]\vee\delta\quad\dots}$$
+
+сечение
+$$\infer{\zeta\vee\delta}{\zeta\vee\alpha\quad\quad\neg\alpha\vee\delta}$$
+Здесь: \\
+$\alpha$ --- секущая формула \\
+Число связок в $\neg\alpha$ --- степень сечения.
+\end{frame}
+
+\begin{frame}{Дерево доказательства}
+\begin{enumerate}
+\item Доказательства образуют деревья.
+\item Каждой формуле в дереве сопоставим порядковое число (ординал).
+\item Порядковое число заключения любого неструктурного правила строго больше порядкового числа его посылок
+(больше или равно в случае структурного правила).
+
+$$\infer{(\forall a.a = a)_\omega}{
+   \infer{0 = 0}{}\quad
+   \infer{0'= 0'}{\infer{\dots}{\infer{0= 0}{}}}\quad
+   \infer{0''= 0''}{\infer{\dots}{\infer{0'= 0'}{\infer{\dots}{\infer{0= 0}{}}}}}\quad\dots
+}\quad\quad\infer{(\forall a.a = a)_1}{
+   \infer{0 = 0}{}\quad
+   \infer{0'= 0'}{}\quad
+   \infer{0''= 0''}{}\quad\dots
+}$$
+
+%$$\infer{(\neg\neg\forall x.\neg x'=0)_{\omega+1}}{\infer{(\forall x.\neg x' = 0)_\omega}{(\neg 1=0)_1\quad (\neg 2=0)_2 \quad (\neg 3=0)_4 \quad (\neg 4 = 0)_8 \dots}}$$
+                 
+\item Существует конечная максимальная степень сечения в дереве (назовём её степенью вывода).
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Любая теорема Ф.А. --- теорема $S_\infty$}
+\begin{thm}Если $\vdash_\text{фа}\alpha$, то $\vdash_\infty|\alpha|_\infty$ \end{thm}
+\begin{thm}Если Ф.А. противоречива, то противоречива и $S_\infty$\end{thm}
+\begin{exm}Обратное неверно: $$\infer{\forall x.\neg\omega(x,\overline{\ulcorner\sigma\urcorner})}
+{\neg\omega(\overline{0},\overline{\ulcorner\sigma\urcorner})\quad\quad
+ \neg\omega(\overline{1},\overline{\ulcorner\sigma\urcorner})\quad\quad
+ \neg\omega(\overline{2},\overline{\ulcorner\sigma\urcorner})\quad\quad\dots}$$
+\end{exm}
+\end{frame}
+
+\begin{frame}{Обратимость правил}
+\begin{thm}
+Если формула $\alpha$ доказана и имеет вид, похожий на заключение правил де Моргана, 
+отрицания и бесконечной индукции --- то посылки соответствующих правил могут быть получены из самой 
+формулы $\alpha$ доказательством, причём доказательством с не большей степенью и не большим порядком.
+\end{thm}
+\begin{proof}
+Например, формула вида $\neg\neg \alpha\vee\delta$. \pause
+
+Проследим историю $\alpha$; она получена:
+\begin{enumerate}
+\item ослаблением --- заменим $\neg\neg\alpha$ на $\alpha$ в этом узле и последующих.
+\item отрицанием --- выбросим правило, заменим $\neg\neg\alpha$ на $\alpha$ в последующих
+\end{enumerate}
+Изменённый вывод --- доказательство требуемого.
+\end{proof}
+\end{frame}
+
+\begin{frame}{Устранение сечений}
+\begin{thm}Если $\alpha$ имеет вывод степени $m>0$ порядка $t$, то
+можно найти вывод степени строго меньшей $m$ с порядком $2^t$.
+\end{thm}
+
+\begin{proof}Трансфинитная индукция по порядку $t$.\begin{enumerate}
+\item База. Если $t=0$, то неструктурных правил нет, отсюда $m = 0$.
+\item Переход. Рассмотрим заключительное правило.
+\begin{enumerate}
+\item Не сечение.
+\item Сечение, секущая формула --- элементарная.
+\item Сечение, секущая формула --- $\neg\alpha$.
+\item Сечение, секущая формула --- $\alpha\vee\beta$.
+\item Сечение, секущая формула --- $\forall x.\alpha$.
+\end{enumerate}
+\end{enumerate}
+\end{proof}
+\end{frame}
+
+\begin{frame}{Случай 1. Не сечение}
+$$\infer{\alpha}{\pi_{t_0}\quad\pi_{t_1}\quad\pi_{t_2}\quad\dots}$$
+Заменим доказательства посылок $\pi_i$ по индукционному предположению.
+
+\begin{enumerate}
+\item Если $m'_i < m_i$, то $\max m'_i < \max m_i$
+\item Если $t_i \le t$, то $2^{t_i} \le 2^t$.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Случай 2.4. Сечение с формулой вида $\forall x.\alpha$}
+$$\infer{\zeta\vee\delta}{\zeta\vee\forall x.\alpha\quad\quad\neg(\forall x.\alpha)\vee\delta}$$
+Причём степень и порядок выводов компонент, соответственно, $(m_1,t_1)$ и $(m_2,t_2)$.
+\begin{enumerate}
+\item По индукции, вывод $\zeta\vee\forall x.\alpha$ можно упростить до $(m_1',2^{t_1})$.
+\item По обратимости, для постоянного $\theta$ можно построить вывод $\zeta\vee\alpha[x := \theta]$ за $(m_1',2^{t_1})$.
+\item В формуле $(\neg \forall x. \alpha)\vee\delta$ формула $\neg\forall x.\alpha$ получена
+либо ослаблением, либо квантификацией из $\neg\alpha[x := \theta_k]\vee\delta_k$. 
+\begin{enumerate}
+\item Каждое правило квантификации заменим на:
+$$\infer{\zeta\vee\delta_k}{\zeta\vee\alpha[x := \theta_k]\quad\quad(\neg\alpha[x := \theta_k])\vee\delta_k}$$
+\item Остальные вхождения $\neg\forall x.\alpha$ заменим на $\zeta$ (в правилах ослабления).
+\end{enumerate}
+\item В получившемся дереве меньше степень --- так как в $\neg\alpha[x := \theta]$ меньше связок, чем в $\neg\forall x.\alpha$.
+\item Нумерацию можно также перестроить.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Теорема об устранении сечений}
+\begin{dfn}Итерационная экспонента
+$$(a\uparrow)^m(t) = 
+  \left\{
+    \begin{array}{ll}     t,&m=0\\
+                          a^{(a\uparrow)^{m-1}(t)},&m > 0
+    \end{array}
+  \right.
+$$
+\end{dfn}
+\begin{thm}Если $\vdash_\infty\sigma$ степени $m$ порядка $t$, то найдётся доказательство без сечений
+порядка $(2\uparrow)^m(t)$
+\end{thm}
+\begin{proof}
+В силу конечности $m$ воспользуемся индукцией по $m$ и теоремой об уменьшении степени.
+\end{proof}
+\end{frame}
+
+\begin{frame}{Непротиворечивость формальной арифметики}
+\begin{thm}Система $S_\infty$ непротиворечива\end{thm}
+\begin{proof} \pause
+Рассмотрим формулу $\neg 0=0$. 
+Если эта формула выводима в $S_\infty$, то она выводима и в $S_\infty$ без сечений.
+Тогда какое заключительное правило? \pause
+\begin{enumerate}
+\item Правило Де-Моргана? \pause Нет отрицаний дизъюнкции ($\neg(\alpha\vee\beta)\vee\delta$). \pause
+\item Отрицание? \pause Нет двойного отрицания ($\neg\neg\alpha\vee\delta$). \pause
+\item Бесконечная индукция или квантификация? \pause Нет квантора. \pause
+\item Ослабление? \pause Нет дизъюнкции ($\alpha \vee \delta$). \pause
+\end{enumerate}
+
+То есть, неизбежно, $\neg 0=0$ --- аксиома, что также неверно.
+\end{proof}
+\end{frame}
+
+\end{document}
