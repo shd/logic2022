@@ -53,7 +53,7 @@
 
 \begin{frame}{Машина, меняющая все 0 на 1, а все 1 --- на 0}
 \begin{enumerate}
-\item Внешний алфавит $\varepsilon, 0, 1$
+\item Внешний алфавит $\varepsilon, 0, 1$.
 \item Внутренний алфавит $s_s, s_f$ (начальное и завершающее состояния соответственно).
 \item Переходы:
 
@@ -94,7 +94,7 @@ $\underline{0}11$ \pause $\Rightarrow 1\underline{1}1$ \pause $\Rightarrow 10\un
 \begin{frame}{Кодируем состояние}
 \begin{enumerate}
 \item внешний алфавит: $n$ 0-местных функциональных символов $q_1, \dots, q_n$; $q_\varepsilon$ --- символ-заполнитель.
-\item список: $\varepsilon$ и $c(l,s)$; <<abc>> представим как $c(q_a,c(q_b,c(q_c,\varepsilon)))$;
+\item список: $\varepsilon$ и $c(l,s)$; <<abc>> представим как $c(q_a,c(q_b,c(q_c,\varepsilon)))$.
 \item положение головки: <<ab.pq>> как $(c(q_b,c(q_a,\varepsilon)), c(q_p,c(q_q,\varepsilon)))$.
 \item внутренний алфавит: $k$ 0-местных функциональных символов $s_1, \dots, s_k$. Из них выделенные $s_s$ --- начальное и
 $s_f$ --- завершающее состояние.
