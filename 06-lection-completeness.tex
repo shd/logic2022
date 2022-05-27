@@ -306,12 +306,12 @@ $\theta$ --- всевозможные замкнутые термы, испол�
 \begin{lmm}Если $M$ непротиворечиво, то каждое множество из $M_k$ --- непротиворечиво\end{lmm}
 \begin{proof}Доказательство по индукции, база очевидна ($M_0 = M$). \pause
 Переход: \begin{itemize}
-\item пусть $M_k$ непротиворечиво, но $M_{k+1}$ --- противоречиво: $M_k, M_{k+1}\setminus M_k \vdash A\with\neg A$ \pause
+\item пусть $M_k$ непротиворечиво, но $M_{k+1}$ --- противоречиво: $M_k, M_{k+1}\setminus M_k \vdash A\with\neg A$. \pause
 \item Тогда (т.к. доказательство конечной длины): 
 $M_k, \gamma_1, \gamma_2, \dots,\gamma_n\vdash A\with\neg A$
-где $\gamma_i \in M_{k+1}\setminus M_k$. \pause
-\item По теореме о дедукции: $M_k\vdash \gamma_1\to\gamma_2\to\dots\to\gamma_n\to A\with\neg A$ \pause
-\item Научимся выкидывать первую посылку: $M_k\vdash \gamma_2\to\dots\to\gamma_n\to A\with\neg A$ \pause
+, где $\gamma_i \in M_{k+1}\setminus M_k$. \pause
+\item По теореме о дедукции: $M_k\vdash \gamma_1\to\gamma_2\to\dots\to\gamma_n\to A\with\neg A$. \pause
+\item Научимся выкидывать первую посылку: $M_k\vdash \gamma_2\to\dots\to\gamma_n\to A\with\neg A$. \pause
 \item И по индукции придём к противоречию: $M_k \vdash A\with\neg A$.
 \end{itemize}
 
