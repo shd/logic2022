@@ -761,4 +761,136 @@ $(\alpha\rightarrow\beta)\rightarrow(\alpha\rightarrow\beta\rightarrow\gamma)\ri
 \end{enumerate}
 \end{enumerate}
 
+\section*{Задание 11. Лямбда-исчисление}
+
+\begin{enumerate}
+\item Напомним правила расстановки скобок в лямбда-выражениях. Лямбда-абстракция ведёт себя жадно: 
+включает всё, что может. Пример: $\lambda z.(\lambda x.a\ b\ c\ \lambda y.d\ e)\ f$ 
+эквивалентно $\lambda z.((\lambda x.(a\ b\ c\ (\lambda y.(d\ e))))\ f)$.
+В аппликациях скобки расставляются слева направо:
+$\lambda z.(\lambda x.(a\ b\ c\ (\lambda y.(d\ e))))\ f$ можно преобразовать в  
+$(\lambda z.((\lambda x.((((a\ b)\ c)\ (\lambda y.(d\ e)))))\ f))$.
+
+\begin{enumerate}
+\item Расставьте скобки в выражении:
+$\lambda z.\lambda x.a\ b\ c\ \lambda y.d\ e\ f$
+\item Уберите все <<лишние>> скобки из выражения:
+$(\lambda f.((\lambda x.(f\ (f\ (x\ (\lambda z.(z\ x))))))\ z))$
+\item Всегда ли лишние скобки можно убрать единственным образом (когда из результирующего
+выражения нельзя больше убрать ни одной пары скобок)? Докажите или опровергните.
+\end{enumerate}
+
+\item Напомним/дадим следующие определения:
+
+\begin{enumerate}
+\item Бета-редекс --- выражение вида $(\lambda x.A) B$
+
+\item Редукция лямбда-выражения --- подстановка выражения вместо переменной в бета-редексе:
+$(\lambda x.A)\ B \rightarrow_\beta A[x:=B]$. Замена может производиться внутри выражения:
+$\lambda s.(\lambda x.x)\ t \rightarrow_\beta \lambda s.t$
+
+\item Многошаговая бета-редукция (бета-редуцируемость) --- транзитивное и рефлексивное
+замыкание бета-редукции: $(\lambda x.x)\ (\lambda x.x)\ (\lambda x.x)\ (\lambda x.x) \twoheadrightarrow_\beta \lambda x.x$
+
+\item Лямбда-выражение в нормальной форме --- в нём невозможно сделать ни одной редукции.
+
+\item Некоторые термы для представления логических выражений в лямбда-исчислении:
+
+\begin{tabular}{lll}
+Обозначение & лямбда-терм & название\\\hline
+$T$ & $\lambda a.\lambda b.a$ & истина\\
+$F$ & $\lambda a.\lambda b.b$ & ложь\\
+$Not$ & $\lambda x.x\ F\ T$ & отрицание\\
+$And$ & $\lambda x.\lambda y.x\ y\ F$ & конъюнкция
+\end{tabular}
+
+\end{enumerate}
+Проредуцируйте следующие выражения и найдите нормальную форму:
+
+\begin{enumerate}
+\item $T\ F$
+\item $(T\ Not\ (\lambda t.t))\ F$
+\item $And\ (And\ F\ F)\ T$
+\end{enumerate}
+
+\item Постройте лямбда-выражения для следующих булевских выражений:
+\begin{enumerate}
+\item Дизъюнкция
+\item Стрелка Пирса (<<или-не>>)
+\item Исключающее или
+\end{enumerate}
+
+\item Напомним определения с лекций:
+
+$$f^{(n)}\ X ::= \left\{\begin{array}{ll} X, & n=0\\
+                                f^{(n-1)}\ (f\ X), & n>0\end{array}\right.$$
+
+\begin{center}\begin{tabular}{lll}
+Обозначение & лямбда-терм & название\\\hline
+$\overline{n}$ & $\lambda f.\lambda x.f^{(n)}\ x$ & чёрчевский нумерал\\
+$(+1)$ & $\lambda n.\lambda f.\lambda x.n\ f\ (f\ x)$ & прибавление 1\\
+$(+)$ & $\lambda a.\lambda b.a\ (+1)\ b$ & сложение\\
+\end{tabular}\end{center}
+
+Используя данные определения и определения операций из аксиоматики Пеано, 
+постройте выражения для следующих операций над числами. Для демонстрации
+корректности работы используйте интерпретатор лямбда-исчисления, например
+LCI \texttt{http://www.chatzi.org/lci/}.
+
+\begin{enumerate}
+\item Умножение на 2 ($Mul2$)
+\item Умножение
+\item Возведение в степень
+\item Проверка на чётность
+\item IsZero: возвращает $T$, если аргумент равен нулю, иначе $F$
+\item Деление на 3
+\end{enumerate}
+
+\item Ещё немного определений:
+
+\begin{tabular}{lll}
+Обозначение & лямбда-терм & название\\\hline
+$MkPair$ & $\lambda a.\lambda b.(\lambda x.x\ a\ b)$ & создание пары\\
+$PrL$ & $\lambda p.p\ T$ & левая проекция\\
+$PrR$ & $\lambda p.p\ F$ & правая проекция\\\hline
+\end{tabular}
+
+\begin{enumerate}
+\item Убедитесь, что $PrL\ (MkPair\ a\ b) \twoheadrightarrow_\beta a$.
+\item Постройте операцию вычитания 1 из числа
+\item Постройте операцию вычитания чисел
+\item Постройте операцию деления на 3 (могут потребоваться пары и/или вычитания)
+\item Постройте операцию деления чисел
+\item Сравнение двух чисел ($IsLess$) — истина, если первый аргумент меньше второго.
+\end{enumerate}
+
+Для демонстрации
+корректности работы используйте интерпретатор лямбда-исчисления, например
+LCI \texttt{http://www.chatzi.org/lci/}.
+
+\item Покажите при помощи изоморфизма Карри-Ховарда следующие высказывания (для
+демонстрации укажите выражение на Хаскеле/Окамле, имеющее соответствующий тип):
+\begin{enumerate}
+\item $\alpha\rightarrow\beta\rightarrow\alpha$
+\item $(\alpha\rightarrow\beta)\rightarrow(\alpha\rightarrow\neg\beta)\rightarrow\neg\alpha$
+\item $\alpha\rightarrow\neg\neg\alpha$
+\item $(\neg\alpha\vee\beta)\rightarrow(\alpha\rightarrow\beta)$
+\item $(\alpha\with\beta)\rightarrow\neg(\neg\alpha\vee\neg\beta)$
+\end{enumerate}
+
+\item Алгебраические типы называются так потому, что позволяют ввести своеобразную
+алгебру на типах: собственно алгебраический тип (тип-сумма) ($\alpha + \beta$) --- сумма, 
+пара ($\alpha \times \beta$) --- произведение, функция
+($\alpha \rightarrow \beta$) --- возведение в степень $\beta^\alpha$.
+Докажите следующие тождества (напишите две функции --- первая из правой части 
+равенства делает левую, а вторая --- из левой правую):
+
+\begin{enumerate}
+\item $\alpha \times (\beta+\gamma) = \alpha\times\beta + \alpha\times\gamma$
+\item $\alpha ^ {\beta + \gamma} = \alpha ^ \beta \times \alpha ^ \gamma$
+\item $\alpha ^ {\beta \times \gamma} = \left(\alpha ^ \beta\right) ^ \gamma$ (иначе называется \emph{карринг})
+\end{enumerate}
+
+\end{enumerate}
+
 \end{document}
