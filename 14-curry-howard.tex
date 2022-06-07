@@ -1,0 +1,253 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{cancel}
+\usepackage{amssymb}
+\usepackage{stmaryrd}
+\usepackage{cmll}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{tikz}
+\usepackage{multicol}
+\usetikzlibrary{patterns}
+\usepackage{chronosys}
+\usepackage{proof}
+\usepackage{multirow}
+\setbeamertemplate{navigation symbols}{}
+%\usetheme{Warsaw}
+
+\newtheorem{thm}{Теорема}[section]
+\newtheorem{dfn}{Определение}[section]
+\newtheorem{lmm}{Лемма}[section]
+\newtheorem{exm}{Пример}[section]
+\newtheorem{snote}{Пояснение}[section]
+
+\newcommand{\divisible}%
+{\mathrel{\lower.2ex%
+\vbox{\baselineskip=0.7ex\lineskiplimit=0pt%
+\kern6pt \hbox{.}\hbox{.}\hbox{.}}%
+}}
+
+\begin{document}
+
+\newcommand\doubleplus{+\kern-1.3ex+\kern0.8ex}
+\newcommand\mdoubleplus{\ensuremath{\mathbin{+\mkern-10mu+}}}
+
+\begin{frame}{}
+\begin{center}\Large Изоморфизм Карри-Ховарда \end{center}
+\end{frame}
+
+\begin{frame}{Лямбда-исчисление}
+Синтаксис:
+$$\Lambda ::= (\lambda x.\Lambda) | (\Lambda\ \Lambda) | x$$
+
+\pause
+
+Интуиция: вызов функции.
+\begin{center}\begin{tabular}{l|l}
+$\lambda$-выражение & Python \\\hline
+$\lambda f.\lambda x.f\ x$ & \texttt{def one(f,x): return f(x)}\\
+$(\lambda x.x\ x)\ (\lambda x.x\ x)$ & \texttt{(lambda x: x x) (lambda x: x x)}\\
+ &   \texttt{def omega(x): return x(x); omega(omega)}
+\end{tabular}\end{center}
+
+\pause
+
+Исчисление: изучаем преобразования формул --- редукция.
+
+$$(\lambda x.A)\ B \rightarrow_\beta A [x := B]$$
+
+\begin{exm}
+$(\lambda x.x\ x)\ (\lambda n.n) \rightarrow_\beta (\lambda n.n)\ (\lambda n.n) \rightarrow_\beta \lambda n.n$\\
+$(\lambda x.x\ x)\ (\lambda x.x\ x) \rightarrow_\beta (\lambda x.x\ x)\ (\lambda x.x\ x)$
+\end{exm}
+\end{frame}
+
+\begin{frame}{Чёрчевские нумералы}
+$$f^{(n)}(x) = \left\{\begin{array}{ll}x, & n = 0\\f(f^{(n-1}(x)), & n > 0\end{array}\right.$$
+
+\begin{dfn}
+Чёрчевский нумерал $\overline{n} = f^{(n)}(x)$
+\end{dfn}
+
+\begin{exm}
+$\overline{3} = \lambda f.\lambda x.f(f(f(x)))$
+
+Инкремент: $Inc = \lambda n.\lambda f.\lambda x.n\ f\ (f\ x)$
+\end{exm}\vspace{-0.3cm}
+
+$$\begin{array}{l}(\lambda n.\lambda f.\lambda x.n\ f\ (f\ x))\ \overline{0} = (\lambda n.\lambda f.\lambda x.n\ f\ (f\ x))\ (\lambda f'.\lambda x'.x') \rightarrow_\beta \pause\\
+  \dots\lambda f.\lambda x.(\lambda f'.\lambda x'.x')\ f\ (f\ x) \rightarrow_\beta \pause\\
+  \dots\lambda f.\lambda x.(\lambda x'.x')\ (f\ x) \rightarrow_\beta \pause\\
+  \dots\lambda f.\lambda x.f\ x = \overline{1}\end{array}$$
+\pause
+
+Декремент: $Dec = \lambda n.\lambda f.\lambda x.n\ (\lambda g.\lambda h.h\ (g\ f))\ (\lambda u.x)\ (\lambda u.u)$
+\end{frame}
+
+\begin{frame}{Просто-типизированное лямбда-исчисление}
+
+\begin{dfn}Импликационный фрагмент интуиционистской логики:
+
+$$\infer{\Gamma,\varphi \vdash \varphi}{} \quad\quad 
+  \infer{\Gamma\vdash\varphi\rightarrow\psi}{\Gamma,\varphi\vdash\psi} \quad\quad 
+  \infer{\Gamma\vdash\psi}{\Gamma\vdash\varphi\quad\quad\Gamma\vdash\varphi\rightarrow\psi}$$
+\end{dfn}
+
+\begin{dfn}
+Просто-типизированное лямбда-исчисление. \pause Типы: $\tau ::= \alpha | (\tau\rightarrow\tau)$. \pause Язык: $\Gamma\vdash A:\varphi$
+$$\infer[x \notin \Gamma]{\Gamma,x:\varphi \vdash x:\varphi}{} \quad\quad 
+  \infer[x \notin \Gamma]{\Gamma\vdash \lambda x.A: \varphi\rightarrow\psi}{\Gamma,x:\varphi\vdash A:\psi} \quad\quad 
+  \infer{\Gamma\vdash B A:\psi}{\Gamma\vdash A:\varphi\quad\quad\Gamma\vdash B:\varphi\rightarrow\psi}$$
+\end{dfn}
+\end{frame}
+
+\begin{frame}{Изоморфизм Карри-Ховарда}
+
+\begin{tabular}{ll}
+$\lambda$-исчисление & исчисление высказываний\\\hline
+Выражение & доказательство\\
+Тип выражения & высказывание\\
+Тип функции & импликация \\
+Упорядоченная пара & конъюнкция \\
+Алгебраический тип & дизъюнкция
+\end{tabular}
+
+\end{frame}
+
+\begin{frame}{Изоморфизм Карри-Ховарда: отрицание}
+
+\begin{dfn}Ложь ($\bot$) --- необитаемый тип;
+$\texttt{failwith/raise/throw} : \alpha\rightarrow\bot$; $\neg\varphi\equiv\varphi\rightarrow\bot$
+ \end{dfn}
+
+Например, контрапозиция:
+$(\alpha\rightarrow\beta)\rightarrow(\neg\beta\rightarrow\neg\alpha)$
+
+$$\infer[\lambda]{\lambda f^{\alpha\rightarrow\beta}.\lambda n^{\beta\rightarrow\bot}.\lambda a^\alpha.n\ (f\ a): (\alpha\rightarrow\beta)\rightarrow(\neg\beta\rightarrow\neg\alpha)}
+        {\infer[\lambda]{f:\alpha\rightarrow\beta\vdash\lambda n^{\beta\rightarrow\bot}.\lambda a^\alpha.n\ (f\ a): \neg\beta\rightarrow\neg\alpha}
+               {\infer[\lambda]{f:\alpha\rightarrow\beta,n:\beta\rightarrow\bot\vdash\lambda a^\alpha.n\ (f\ a): \neg\alpha}{
+                       \infer[App]{f:\alpha\rightarrow\beta,n:\beta\rightarrow\bot, a:\alpha \vdash n\ (f\ a): \bot}{
+                              \infer[App]{\Phi \vdash f\ a: \beta}{\infer[Ax]{\Phi \vdash f:\alpha\rightarrow\beta}{}\quad\quad \infer[Ax]{\Phi \vdash a: \alpha}{}}
+    \quad\quad \infer[Ax]{\Phi \vdash n: \beta\rightarrow\bot}{}
+               }
+               }}}$$
+
+Снятие двойного отрицания: $((\alpha\rightarrow\bot)\rightarrow\bot)\rightarrow\alpha$, то есть $\lambda f^{(\alpha\rightarrow\bot)\rightarrow\bot}.?: \alpha$.
+\end{frame}
+
+\begin{frame}{Исчисление второго порядка}
+\begin{itemize}
+\item Напомним о порядках:
+
+\begin{tabular}{lll}
+Порядок & Объекты & Пример\\\hline
+0 (И.В.) & Атомарные & $P$ \\
+1 (И.П. 1) & Множества & $\{ x | P(x) \}$ \\
+2 (И.П. 2) & Множества множеств & $\{ P | \forall t.t > 0 \rightarrow P(t) \}$
+\end{tabular}\pause
+
+\item Можно заменить схемы аксиом на аксиомы:
+$\forall a.\forall b.a \rightarrow b \rightarrow a$\pause
+
+\item
+Не так просто! $W(x) := \forall p.\forall x.p(x)$, рассматриваем ли
+$\llbracket \forall x.p(x) \rrbracket^{p := W(x)}$? (импредикативность)
+\pause
+
+\item
+Простой вариант: только пропозициональные переменные. $\forall p.p \rightarrow p$ \pause
+$$\llbracket\forall p.Q\rrbracket = \left\{\begin{array}{ll}\text{И}, & 
+         \llbracket Q \rrbracket^{p := \text{И}} = \llbracket Q \rrbracket^{p := \text{Л}} = \text{И}\\
+        \text{Л}, & \text{иначе}\end{array}\right.$$
+
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Изоморфизм Карри-Ховарда для логики второго порядка}
+Типы и значения, зависящие от типов.
+\begin{itemize}
+\item Что такое $T: \forall x.x \rightarrow x$? \pause \\
+ \texttt{template <class x> class T \{ x f (x); \}} \pause
+\item Что такое $T: \exists x.\tau(x)$? \pause \\
+ Абстрактный тип данных: $\texttt{interface T \{$\tau$\}; f(T x)}$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Зависимые типы}
+\begin{itemize}\item Рассмотрим код\\ \texttt{int n; cin >{}>{} n; int arr[n];} \\
+Каков тип \texttt{arr}? \pause
+\item $\texttt{sizeof(arr)} = n \cdot \texttt{sizeof(int)}$ \pause
+\item $arr = \Pi n^{\texttt{int}}.\texttt{int[}n\texttt{]}$ \pause
+\item Аналогично, \texttt{printf(const char*, ...)} --- капитуляция. \pause
+\item Есть языки, где тип выписывается (например, Идрис).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Прямолинейное: доказательства в коде}
+\begin{itemize}
+\item \texttt{Div2: (l: int) -> (even l) -> int}\pause
+\item \texttt{even l} --- что это?\pause
+\item $$even (x) ::= \left\{\begin{array}{ll} EZ, & x = 0\\ EP(even(y)), & x = y''\end{array}\right.$$\pause
+\item \texttt{Div2 10 (EP (EP (EP (EP (EP EZ)))))}\pause
+\item А если \texttt{Div2 p}? В общем случае сложно.
+
+\texttt{Plus2: (l: int) -> (p: even l) -> (l+2, even (l+2)) = (l+2, EP p)}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Интереснее: доказательства утверждений}
+
+Натуральные числа: $\texttt{Nat} ::= 0 | \texttt{suc Nat}$,
+
+$$a + b = \left\{\begin{array}{ll} a, & b = 0\\ \texttt{suc }(a + c), & b = \texttt{suc }c\end{array}\right.$$
+
+\texttt{\\func pmap {A B : \\Type} (f : A -> B) \{a a' : A\} (p : a = a') : f a = f a' => ...}
+
+\texttt{\\func +-comm (n m : Nat) : n + m = m + n\\
+  | 0, 0 => idp\\
+  | suc n, 0 => pmap suc (+-comm n 0)\\
+  | 0, suc m => pmap suc (+-comm 0 m)\\
+  | suc n, suc m => pmap suc (+-comm (suc n) m *> \\
+                    pmap suc (inv (+-comm n m)) *> +-comm n (suc m))}
+
+\end{frame}
+
+\begin{frame}{Гомотопическая теория типов}
+\begin{dfn}Изоморфизм Карри-Ховарда-Воеводского.
+
+\begin{tabular}{lll}
+Логика & $\lambda$-исчисление & Топология\\\hline
+Утверждение & Тип & Пространство \\
+Доказательство & Значение & Точка в пространстве\\
+Предикат $(=)$ & Зависимый тип $(=)$ & Путь между точками
+\end{tabular}\end{dfn}
+
+\begin{enumerate}
+\item Точный смысл равенства.
+\item Позволяет легко формулировать утверждения про топологию, гомологическую алгебру и т.п.
+\item Можно реализовать (кубическая теория типов). Реализации для Агды, Кока, ..., отдельные языки (Аренд)
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Какие вопросы пытаемся решать?}
+\begin{exm}Самое простое: $x=y$. Почему $x^2 = y^2$?\end{exm} \pause
+
+А что если так $(a = b) = \{ \langle a,b \rangle | a < 10 \with b < 10 \}$?
+Тогда $5=7$, но $25 \ne 49$. \pause
+
+Постулируется в формальной арифметике: $(A2)\ a = b \rightarrow a' = b'$ \pause
+
+\begin{proof}Путь $x$ в $y$ --- функция $f: [0,1] \rightarrow S$, 
+$f(0)=x$, $f(1)=y$. $f(x) = x^2$ --- непрерывная функция. Тогда $f(x^2)$ --- тоже непрерывная,
+то есть $x^2 = y^2$.\end{proof}
+\end{frame}
+
+\begin{frame}{Что ещё}
+\begin{itemize}
+\item Метод резолюций и рядом --- Prolog, SMT-солверы,...
+\item Можно пытаться совмещать (F*, ...)
+\end{itemize}
+\end{frame}
+\end{document}
