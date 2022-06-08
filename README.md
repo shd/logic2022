@@ -34,7 +34,7 @@ https://www.mccme.ru/free-books/shen/shen-logic-part2-2.pdf
 + Конспекты 2011 и 2018 года по логике.
 + Morten Heine B. Sørensen, Pawel Urzyczyn: Lections on the Curry-Howard Isomorphism
 https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
-+ В.Е.Плиско, В.Х.Хаханян, Интуиционистская логика, Мех-Мат МГУ 2009 (http://lpcs.math.msu.su/~plisko/intlog.pdf)
++ В.Е.Плиско, В.Х.Хаханян, Интуиционистская логика, Мех-Мат МГУ 2009 (https://github.com/shd/logic2022/blob/master/intlog.pdf)
 
 ## Лекция 3
 ### Модели интуиционистского исчисления высказываний
@@ -43,7 +43,7 @@ https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
 + Решётки
 ### Где почитать
 + О. Я. Виро, О. А. Иванов, Н. Ю. Нецветаев, В. М. Харламов. Элементарная топология. --- М.: Издательство МЦНМО, 2010
-+ В.Е.Плиско, В.Х.Хаханян, Интуиционистская логика, Мех-Мат МГУ 2009 (http://lpcs.math.msu.su/~plisko/intlog.pdf)
++ В.Е.Плиско, В.Х.Хаханян, Интуиционистская логика, Мех-Мат МГУ 2009 (https://github.com/shd/logic2022/blob/master/intlog.pdf)
 + Morten Heine B. Sørensen, Pawel Urzyczyn: Lections on the Curry-Howard Isomorphism
 https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
 
@@ -54,7 +54,7 @@ https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
 + Модели Крипке
 + Нетабличность ИИВ
 ### Где почитать
-+ В.Е.Плиско, В.Х.Хаханян, Интуиционистская логика, Мех-Мат МГУ 2009 (http://lpcs.math.msu.su/~plisko/intlog.pdf)
++ В.Е.Плиско, В.Х.Хаханян, Интуиционистская логика, Мех-Мат МГУ 2009 (https://github.com/shd/logic2022/blob/master/intlog.pdf)
 + Morten Heine B. Sørensen, Pawel Urzyczyn: Lections on the Curry-Howard Isomorphism
 https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
 
