@@ -1,8 +1,7 @@
 Курс математической логики, КТ, весна 2022
-
+==========================
 [Собраные PDF-ки:](https://github.com/shd/logic2022/releases/tag/pdfs)
 [![Build latex files](https://github.com/shd/logic2022/actions/workflows/build_latex.yml/badge.svg)](https://github.com/shd/logic2022/actions/workflows/build_latex.yml)
-==========================
 ## Материалы
 + [Конспект 2018 года](https://github.com/shd/logic2018/blob/master/conspect.pdf)
 + [Конспект 2011 года](https://github.com/shd/logic2011/blob/master/conspect.pdf)
