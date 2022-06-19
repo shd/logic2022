@@ -21,6 +21,12 @@ jobs:
         with:
           name: pdfs
           path: "*.pdf"
+      - name: Create tag
+        uses: rickstaa/action-create-tag@v1
+        if: ${{ github.event_name != 'pull_request' }}
+        with:
+          tag: "pdfs"
+          message: "Tag that is used to publush pdfs"
       - name: Release as a release
         uses: softprops/action-gh-release@v1
         if: ${{ github.event_name != 'pull_request' }}
