@@ -14,7 +14,7 @@ jobs:
       - name: Build pdfs
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: "*.tex"
+          root_file: "test-paper.tex"
           glob_root_file: true
       - name: Publish pdfs
         uses: actions/upload-artifact@v3
@@ -31,5 +31,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         if: ${{ github.event_name != 'pull_request' }}
         with:
+          tag_name: pdfs
           files: |
             *.pdf
