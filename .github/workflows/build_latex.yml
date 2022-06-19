@@ -23,7 +23,7 @@ jobs:
           path: "*.pdf"
       - name: Release as a release
         uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
+        if: ${{ github.event_name != 'pull_request' }}
         with:
           files: |
             *.pdf
