@@ -26,6 +26,7 @@ jobs:
         if: ${{ github.event_name != 'pull_request' }}
         with:
           tag: "pdfs"
+          force_push_tag: true
           message: "Tag that is used to publush pdfs"
       - name: Release as a release
         uses: softprops/action-gh-release@v1
