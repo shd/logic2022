@@ -2,8 +2,12 @@ name: Build latex files
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - "*.tex"
   pull_request:
     branches: [ "main" ]
+    paths:
+      - "*.tex"
 jobs:
   build:
     runs-on: ubuntu-latest
