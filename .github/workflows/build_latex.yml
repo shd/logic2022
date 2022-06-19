@@ -20,7 +20,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: pdfs
-          path: *.pdf
+          path: "*.pdf"
       - name: Release as a release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
