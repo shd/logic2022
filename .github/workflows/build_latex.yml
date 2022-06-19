@@ -8,7 +8,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout pull_request
+        if: github.event_name == 'pull_request'
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+      - name: Checkout commit
         uses: actions/checkout@v3
       - name: Build pdfs
         uses: xu-cheng/latex-action@v2
