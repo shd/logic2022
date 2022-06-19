@@ -21,6 +21,7 @@ jobs:
           name: pdfs
           path: "*.pdf"
       - name: "Enable lfs"
+        if: false
         run: |
            git lfs track "*.pdf"
            git add .gitattributes
