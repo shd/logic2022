@@ -19,7 +19,7 @@ jobs:
       - name: Build pdfs
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: ${git --no-pager diff --name-only HEAD HEAD~1 | grep '^.*\.tex$'}
+          root_file: "hw-theory.tex test-paper.tex"
       - name: Publish pdfs
         uses: actions/upload-artifact@v3
         with:
