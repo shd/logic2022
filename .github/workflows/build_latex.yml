@@ -31,6 +31,8 @@ jobs:
         run: |
            git lfs track "*.pdf"
            git add .gitattributes
+      - name: "Debug print git status"
+        run: "git status"
       - name: Commit new pdfs
         uses: EndBug/add-and-commit@v9
         with:
