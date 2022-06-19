@@ -9,8 +9,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: xu-cheng/latex-action@v2
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Build pdfs
+        uses: xu-cheng/latex-action@v2
         with:
           root_file: "*.tex"
           glob_root_file: true
+      - name: Publish pdfs
+        uses: actions/upload-artifact@v3
+        with:
+          name: pdfs
+          path: *.pdf
+      - name: Release as a release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            *.pdf
