@@ -16,10 +16,16 @@ jobs:
       - name: Checkout commit
         if: github.event_name != 'pull_request'
         uses: actions/checkout@v3
+      - name: Find changed files
+        run: |
+          FILES=$(git --no-pager diff --name-only HEAD HEAD~1 | grep "^.*\.tex$")
+          echo "FILES<<EOF" >> $GITHUB_ENV
+          echo "$FILES" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
       - name: Build pdfs
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: "hw-theory.tex\ntest-paper.tex"
+          root_file: ${{ env.FILES }}
       - name: Publish pdfs
         uses: actions/upload-artifact@v3
         with:
