@@ -13,7 +13,7 @@ jobs:
       - name: Build pdfs
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: "*.pdf"
+          root_file: "*.tex"
           glob_root_file: true
       - name: Publish pdfs
         uses: actions/upload-artifact@v3
