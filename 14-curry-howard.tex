@@ -85,7 +85,7 @@ $$\begin{array}{l}(\lambda n.\lambda f.\lambda x.n\ f\ (f\ x))\ \overline{0} = (
 Декремент: $Dec = \lambda n.\lambda f.\lambda x.n\ (\lambda g.\lambda h.h\ (g\ f))\ (\lambda u.x)\ (\lambda u.u)$
 \end{frame}
 
-\begin{frame}{Просто-типизированное лямбда-исчисление}
+\begin{frame}{Просто типизированное лямбда-исчисление}
 
 \begin{dfn}Импликационный фрагмент интуиционистской логики:
 
@@ -95,7 +95,7 @@ $$\infer{\Gamma,\varphi \vdash \varphi}{} \quad\quad
 \end{dfn}
 
 \begin{dfn}
-Просто-типизированное лямбда-исчисление. \pause Типы: $\tau ::= \alpha | (\tau\rightarrow\tau)$. \pause Язык: $\Gamma\vdash A:\varphi$
+Просто типизированное лямбда-исчисление. \pause Типы: $\tau ::= \alpha | (\tau\rightarrow\tau)$. \pause Язык: $\Gamma\vdash A:\varphi$
 $$\infer[x \notin \Gamma]{\Gamma,x:\varphi \vdash x:\varphi}{} \quad\quad 
   \infer[x \notin \Gamma]{\Gamma\vdash \lambda x.A: \varphi\rightarrow\psi}{\Gamma,x:\varphi\vdash A:\psi} \quad\quad 
   \infer{\Gamma\vdash B A:\psi}{\Gamma\vdash A:\varphi\quad\quad\Gamma\vdash B:\varphi\rightarrow\psi}$$
