@@ -342,7 +342,7 @@ $$\llbracket\exists y.\neg x = y\rrbracket=\text{И}\quad\quad\llbracket(\exists
 \begin{thm}Если $\Gamma\vdash\alpha\rightarrow\beta$, то $\Gamma,\alpha\vdash\beta$.
 Если $\Gamma,\alpha\vdash\beta$ и в доказательстве не применяются правила для кванторов 
 по свободным переменным из $\alpha$, то $\Gamma\vdash\alpha\rightarrow\beta$.\end{thm}
-\begin{proof}$(\Rightarrow)$ --- как в К.И.В. \pause $(\Leftarrow)$ --- та же схема, два новых случая. \pause
+\begin{proof}$(\Rightarrow)$ --- как в КИВ \pause $(\Leftarrow)$ --- та же схема, два новых случая. \pause
 
 Перестроим: $\delta_1, \delta_2, \dots, \delta_n \equiv \beta$ в $\alpha\rightarrow\delta_1, \alpha\rightarrow\delta_2, \dots, \alpha\rightarrow\delta_n$.
 
@@ -353,10 +353,10 @@ $$\llbracket\exists y.\neg x = y\rrbracket=\text{И}\quad\quad\llbracket(\exists
 Доказываем $(n)\ \ \alpha\rightarrow\psi\rightarrow\forall x.\varphi$ (правило для $\forall$), значит, доказано  
 $(k)\ \ \alpha\rightarrow\psi\rightarrow\varphi$. \pause
 \begin{tabular}{lll}
-$(n-0.9) \dots (n-0.8)$ & $(\alpha\rightarrow\psi\rightarrow\varphi)\rightarrow(\alpha\with\psi)\rightarrow\varphi$ & Т. о полноте К.И.В.\\
+$(n-0.9) \dots (n-0.8)$ & $(\alpha\rightarrow\psi\rightarrow\varphi)\rightarrow(\alpha\with\psi)\rightarrow\varphi$ & Т. о полноте КИВ\\
 $(n-0.6)$ & $(\alpha\with\psi)\rightarrow\varphi$ & M.P. $k$,$n-0.8$\\\pause
 $(n-0.4)$ & $(\alpha\with\psi)\rightarrow\forall x.\varphi$ & Правило для $\forall$, $n-0.6$\\\pause
-$(n-0.3) \dots (n-0.2)$ & $((\alpha\with\psi)\rightarrow\forall x.\varphi)\rightarrow(\alpha\rightarrow\psi\rightarrow\forall x.\varphi)$ & Т. о полноте К.И.В.\\
+$(n-0.3) \dots (n-0.2)$ & $((\alpha\with\psi)\rightarrow\forall x.\varphi)\rightarrow(\alpha\rightarrow\psi\rightarrow\forall x.\varphi)$ & Т. о полноте КИВ\\
 $(n)$ & $\alpha\rightarrow\psi\rightarrow\forall x.\varphi$ & M.P. $n-0.4$, $n-0.2$
 \end{tabular}
 
