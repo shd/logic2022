@@ -109,9 +109,9 @@ $$\Gamma\vdash \alpha\with\neg\alpha$$\pause\vspace{-0.4cm}
 $\Gamma \subseteq \Delta$
 \end{thm}\pause
 
-\begin{block}{Доказательство}
+\begin{proof}
 \begin{enumerate}
-\item Занумеруем все формулы (их счётное количество): $\varphi_1, \varphi_2, \dots$.\pause
+\item Занумеруем все формулы (их счётное количество): $\varphi_1, \varphi_2, \dots$\pause
 \item Построим семейство множеств $\{\Gamma_i\}$:
 \begin{tabular}{cc}
 $\Gamma_0 = \Gamma$  &
@@ -121,12 +121,12 @@ $$\Gamma_{i+1} = \left\{\begin{array}{ll}\Gamma_i \cup \{\varphi_i\},& \mbox{ е
 \end{minipage}\end{tabular}\pause
 \item Итоговое множество $$\Delta = \bigcup_i \Gamma_i$$\pause\vspace{-0.2cm}
 \item Непротиворечивость $\Delta$ не следует из индукции --- индукция гарантирует непротиворечивость
-      только $\Gamma_i$ при натуральном (т.е. \emph{конечном}) $i$, потому...
+      только $\Gamma_i$ при натуральном (т.е. \emph{конечном}) $i$, потому\dots
 \end{enumerate}
-\end{block}
+\end{proof}
 \end{frame}
 
-\begin{frame}{Дополнение... (завершение доказательства)}\vspace{-1cm}
+\begin{frame}{Дополнение\dots (завершение доказательства)}\vspace{-1cm}
 \begin{block}{}
 \begin{enumerate}\setcounter{enumi}{3}
   \item $\Delta$ непротиворечиво:
@@ -158,7 +158,7 @@ $\delta_1, \delta_2,\dots,\delta_n$. \pause Тогда $\vdash \delta_1\to\delta
 то есть $\llbracket\delta_1\to\delta_2\to\dots\to\delta_n\to A\with\neg A\rrbracket = \text{И}$ (корректность).
 \pause Поскольку все $\llbracket \delta_i \rrbracket_\mathcal{M} = \text{И}$, то
 и $\llbracket A\with\neg A\rrbracket_\mathcal{M} = \text{И}$ (анализ таблицы истинности импликации). \pause
-Однако, $\llbracket A \with\neg A \rrbracket = \text{Л}$. Противоречие.\end{proof}\pause
+Однако $\llbracket A \with\neg A \rrbracket = \text{Л}$. Противоречие.\end{proof}\pause
 \begin{flw} Исчисление предикатов непротиворечиво \end{flw}\pause
 \begin{proof} Рассмотрим $M = \varnothing$ и любую классическую модель.\end{proof}\pause
 Доказательства опираются на непротиворечивость метатеории.
@@ -296,7 +296,7 @@ $$\varphi ::= \forall x.\varphi\ |\ \exists x.\varphi\ |\ \tau$$
 \item $\varphi_i = \forall x.\psi$ --- добавим к $S$ все формулы вида $\psi [x := \theta]$, где
 $\theta$ --- всевозможные замкнутые термы, использующие символы из $M_k$;\pause
 \item $\varphi_i = \exists x.\psi$ --- добавим к $S$ формулу $\psi [x := d^{k+1}_i]$, где $d^{k+1}_i$ --- некоторая
-свежая ранее не использовавшаяся в $M_k$ константа.\pause
+свежая, ранее не использовавшаяся в $M_k$, константа.\pause
 \end{enumerate}
 \end{itemize}
 \end{itemize}
@@ -320,9 +320,9 @@ $M_k, \gamma_1, \gamma_2, \dots,\gamma_n\vdash A\with\neg A$
 
 \begin{frame}{Устранение посылки}
 \begin{lmm}
-Если $M_k\vdash\gamma\to W$, и $\gamma\in M_{k+1}\setminus M_k$, то $M_k\vdash W$.
+Если $M_k\vdash\gamma\to W$ и $\gamma\in M_{k+1}\setminus M_k$, то $M_k\vdash W$.
 \end{lmm}
-\begin{block}{Доказательство}
+\begin{proof}
 Покажем, как дополнить доказательство до $M_k\vdash W$, в зависимости от происхождения $\gamma$:
 \pause
 
@@ -338,7 +338,7 @@ $\gamma$  & (M.P.) \\\pause
 $W$ & (M.P.)
 \end{tabular}
 \end{itemize}
-\end{block}
+\end{proof}
 \end{frame}
 
 \begin{frame}{Случай $\exists x.\varphi$}
@@ -354,7 +354,7 @@ $W$ & (M.P.)
 $\varphi[x := y]\to W$ & $\varphi[x := d^{k+1}_i][d^{k+1}_i := y]$\\\pause
 $(\exists y.\varphi[x:=y])\to W$ & $y$ не входит в $W$ \\\pause
 $(\exists x.\varphi)\to(\exists y.\varphi[x:=y])$ & доказуемо (упражнение)\\\pause
- ... \\
+ \dots \\
 $(\exists x.\varphi)\to W$ & доказуемо как $(\alpha\to\beta)\to(\beta\to\gamma)\vdash\alpha\to\gamma$ \\\pause
 $\exists x.\varphi$ & гипотеза\\\pause
 $W$
@@ -430,7 +430,7 @@ $\delta_1, \delta_2,\dots,\delta_n$. \pause Тогда $\vdash \delta_1\to\delta
 то есть $\llbracket\delta_1\to\delta_2\to\dots\to\delta_n\to A\with\neg A\rrbracket = \text{И}$ (корректность).
 \pause Поскольку все $\llbracket \delta_i \rrbracket_\mathcal{M} = \text{И}$, то
 и $\llbracket A\with\neg A\rrbracket_\mathcal{M} = \text{И}$ (анализ таблицы истинности импликации). \pause
-Однако, $\llbracket A \with\neg A \rrbracket = \text{Л}$. Противоречие.\end{proof}\pause
+Однако $\llbracket A \with\neg A \rrbracket = \text{Л}$. Противоречие.\end{proof}\pause
 \begin{flw} Исчисление предикатов непротиворечиво \end{flw}\pause
 \begin{proof} Рассмотрим $M = \varnothing$ и любую классическую модель.\end{proof}\pause
 Доказательства опираются на непротиворечивость метатеории.
@@ -571,7 +571,7 @@ $$\varphi ::= \forall x.\varphi\ |\ \exists x.\varphi\ |\ \tau$$
 \item $\varphi_i = \forall x.\psi$ --- добавим к $S$ все формулы вида $\psi [x := \theta]$, где
 $\theta$ --- всевозможные замкнутые термы, использующие символы из $M_k$;\pause
 \item $\varphi_i = \exists x.\psi$ --- добавим к $S$ формулу $\psi [x := d^{k+1}_i]$, где $d^{k+1}_i$ --- некоторая
-свежая ранее не использовавшаяся в $M_k$ константа.\pause
+свежая, ранее не использовавшаяся в $M_k$, константа.\pause
 \end{enumerate}
 \end{itemize}
 \end{itemize}
@@ -595,9 +595,9 @@ $M_k, \gamma_1, \gamma_2, \dots,\gamma_n\vdash A\with\neg A$
 
 \begin{frame}{Устранение посылки}
 \begin{lmm}
-Если $M_k\vdash\gamma\to W$, и $\gamma\in M_{k+1}\setminus M_k$, то $M_k\vdash W$.
+Если $M_k\vdash\gamma\to W$ и $\gamma\in M_{k+1}\setminus M_k$, то $M_k\vdash W$.
 \end{lmm}
-\begin{block}{Доказательство}
+\begin{proof}
 Покажем, как дополнить доказательство до $M_k\vdash W$, в зависимости от происхождения $\gamma$:
 \pause
 
@@ -613,7 +613,7 @@ $\gamma$  & (M.P.) \\\pause
 $W$ & (M.P.)
 \end{tabular}
 \end{itemize}
-\end{block}
+\end{proof}
 \end{frame}
 
 \begin{frame}{Случай $\exists x.\varphi$}
@@ -629,7 +629,7 @@ $W$ & (M.P.)
 $\varphi[x := y]\to W$ & $\varphi[x := d^{k+1}_i][d^{k+1}_i := y]$\\\pause
 $(\exists y.\varphi[x:=y])\to W$ & $y$ не входит в $W$ \\\pause
 $(\exists x.\varphi)\to(\exists y.\varphi[x:=y])$ & доказуемо (упражнение)\\\pause
- ... \\
+ \dots \\
 $(\exists x.\varphi)\to W$ & доказуемо как $(\alpha\to\beta)\to(\beta\to\gamma)\vdash\alpha\to\gamma$ \\\pause
 $\exists x.\varphi$ & гипотеза\\\pause
 $W$

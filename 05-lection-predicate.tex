@@ -93,7 +93,7 @@ $$\color{blue}\forall {\color{red}x}.{\color{red}\sin x} = {\color{red}0} \vee {
 \item Предметные выражения: метапеременная {\color{blue}$\theta$}. \pause
 \begin{itemize}
 \item Предметные переменные: {\color{blue}$a$}, {\color{blue}$b$}, {\color{blue}$c$}, \dots, метапеременные {\color{blue}$x$}, {\color{blue}$y$}. \pause
-\item Функциональные выражения: {\color{blue}$f(\theta_1,\dots,\theta_n)$}, метапеременные {\color{blue}$f$}, {\color{blue}$g$}, ....\\\pause
+\item Функциональные выражения: {\color{blue}$f(\theta_1,\dots,\theta_n)$}, метапеременные {\color{blue}$f$}, {\color{blue}$g$}, \dots\\\pause
 %Имена разнообразны: {\color{blue}$(\theta_1+\theta_2)$}, {\color{blue}$0$} и т.п.\pause
 \item Примеры: %{\color{blue}$(x+1)^2$}. \\\pause
 % Раскроем сокращения: {\color{blue}$(\theta_0+\theta_1)\equiv p(\theta_0,\theta_1)$},
@@ -101,10 +101,10 @@ $$\color{blue}\forall {\color{red}x}.{\color{red}\sin x} = {\color{red}0} \vee {
   {\color{blue}$r$},
   {\color{blue}$q(p(x,s),r)$}.
 \end{itemize}\pause
-\item Логические выражения: метапеременные {\color{blue}$\alpha$}, {\color{blue}$\beta$}, {\color{blue}$\gamma$}, ...
+\item Логические выражения: метапеременные {\color{blue}$\alpha$}, {\color{blue}$\beta$}, {\color{blue}$\gamma$}, \dots
 \begin{itemize}
 \item Предикатные выражения: {\color{blue}$P(\theta_1,\dots,\theta_n)$}, метапеременная {\color{blue}$P$}.\\\pause
-Имена: {\color{blue}$A$}, {\color{blue}$B$}, {\color{blue}$C$}, \dots, \pause %также {\color{blue}$(\theta_1=\theta_2)$} и т.п.\pause
+Имена: {\color{blue}$A$}, {\color{blue}$B$}, {\color{blue}$C$}, \dots \pause %также {\color{blue}$(\theta_1=\theta_2)$} и т.п.\pause
 \item Связки: {\color{blue}$(\varphi\vee\psi)$}, {\color{blue}$(\varphi\with\psi)$}, {\color{blue}$(\varphi\rightarrow\psi)$}, 
    {\color{blue}$(\neg\varphi)$}.\pause
 \item Кванторы: {\color{blue}$(\forall x.\varphi)$} и {\color{blue}$(\exists x.\varphi)$}.
@@ -120,11 +120,11 @@ $$\color{blue}\forall {\color{red}x}.{\color{red}\sin x} = {\color{red}0} \vee {
 \begin{enumerate}
 \item Метапеременные:
 \begin{itemize}
-\item $\color{blue}\psi$, $\color{blue}\phi$, $\color{blue}\pi$, ... --- формулы
-\item $\color{blue}P$, $\color{blue}Q$, ... --- предикатные символы
-\item $\color{blue}\theta$, ... --- термы
-\item $\color{blue}f$, $\color{blue}g$, ... --- функциональные символы
-\item $\color{blue}x$, $\color{blue}y$, ... --- предметные переменные
+\item $\color{blue}\psi$, $\color{blue}\phi$, $\color{blue}\pi$, \dots --- формулы
+\item $\color{blue}P$, $\color{blue}Q$, \dots --- предикатные символы
+\item $\color{blue}\theta$, \dots --- термы
+\item $\color{blue}f$, $\color{blue}g$, \dots --- функциональные символы
+\item $\color{blue}x$, $\color{blue}y$, \dots --- предметные переменные
 \end{itemize}\pause
 
 \item Скобки --- как в И.В.; квантор --- жадный:
@@ -137,7 +137,7 @@ $$\color{blue}\forall {\color{red}x}.{\color{red}\sin x} = {\color{red}0} \vee {
 \item $\color{blue}(\theta_1 = \theta_2)$ вместо $\color{blue}E(\theta_1,\theta_2)$
 \item $\color{blue}(\theta_1 + \theta_2)$ вместо $\color{blue}p(\theta_1,\theta_2)$
 \item $\color{blue}0$ вместо $\color{blue}z$
-\item ...
+\item \dots
 \end{itemize}
 
 \end{enumerate}
@@ -259,7 +259,7 @@ $$\llbracket \forall x.\exists y.\neg x+1 = y \rrbracket = \text{Л}$$
 \begin{dfn}Формула исчисления предикатов общезначима, если истинна при любой оценке:
 $$\models\phi$$\end{dfn}\pause
 
-То есть, истинна при любых $D$, $F$, $P$ и $E$.
+То есть истинна при любых $D$, $F$, $P$ и $E$.
 \end{frame}
 
 \begin{frame}{Пример: общезначимая формула}
@@ -272,7 +272,7 @@ $$\models\phi$$\end{dfn}\pause
 \begin{itemize}
 \item Если $t = \text{И}$, то $\llbracket P(f(x))\rrbracket^{P(f(x)):=t} = \text{И}$,
   потому $\llbracket P(f(x))\vee\neg P(f(x))\rrbracket^{P(f(x)):=t} = \text{И}$
-\item Если $t = \text{Л}$, то $\neg P(f(x))\rrbracket^{P(f(x)):=t} = \text{И}$ потому
+\item Если $t = \text{Л}$, то $\neg P(f(x))\rrbracket^{P(f(x)):=t} = \text{И}$, потому
   всё равно $\llbracket P(f(x))\vee\neg P(f(x))\rrbracket^{P(f(x)):=t} = \text{И}$
 \end{itemize}
 \end{proof}
@@ -342,7 +342,7 @@ $$\llbracket\exists y.\neg x = y\rrbracket=\text{И}\quad\quad\llbracket(\exists
 \begin{thm}Если $\Gamma\vdash\alpha\rightarrow\beta$, то $\Gamma,\alpha\vdash\beta$.
 Если $\Gamma,\alpha\vdash\beta$ и в доказательстве не применяются правила для кванторов 
 по свободным переменным из $\alpha$, то $\Gamma\vdash\alpha\rightarrow\beta$.\end{thm}
-\begin{proof}$(\Rightarrow)$ --- как в К.И.В. \pause $(\Leftarrow)$ --- та же схема, два новых случая. \pause
+\begin{proof}$(\Rightarrow)$ --- как в КИВ \pause $(\Leftarrow)$ --- та же схема, два новых случая. \pause
 
 Перестроим: $\delta_1, \delta_2, \dots, \delta_n \equiv \beta$ в $\alpha\rightarrow\delta_1, \alpha\rightarrow\delta_2, \dots, \alpha\rightarrow\delta_n$.
 
@@ -372,7 +372,7 @@ $(n)$ & $\alpha\rightarrow\psi\rightarrow\forall x.\varphi$ & M.P. $n-0.4$, $n-0
 \end{enumerate}
 \end{dfn}
 
-\begin{thm}Если $\Gamma\vdash\alpha$ и в доказательстве не используется кванторов по свободным
+\begin{thm}Если $\Gamma\vdash\alpha$ и в доказательстве не используются кванторы по свободным
 переменным из $\Gamma$, то $\Gamma\models\alpha$\end{thm}
 \end{frame}
 
