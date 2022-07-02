@@ -499,15 +499,14 @@ $W_1(x,p)=0$, если это не так.
 \end{frame}
 
 \begin{frame}{Теорема Гёделя, вспомогательные определения}
-\begin{thm}Существует формула $\omega_1$ со свободными переменными $x_1$ и $x_2$,
-такая, что:
+\begin{thm}Существует формула $\omega_1$ со свободными переменными $x_1$ и $x_2$ такая, что:
 \begin{enumerate}
 \item $\vdash \omega_1(\overline{\ulcorner \varphi \urcorner},\overline{p})$, если $p$ --- гёделев номер
 доказательства самоприменения $\varphi$;
 \item $\vdash \neg\omega_1(\overline{\ulcorner \varphi \urcorner},\overline{p})$ иначе.
 \end{enumerate}
 \end{thm}
-\begin{proof}Опираясь на рекурсивность функции proof, легко показать рекусривность $W_1$.
+\begin{proof}Опираясь на рекурсивность функции proof, легко показать рекурсивность $W_1$.
 Значит, эта функция представима в формальной арифметике некоторой формулой $\tau_1$.
 Возьмём $\omega_1(x_1,x_2) := \tau_1(x_1,x_2,\overline{1})$.
 \end{proof}
